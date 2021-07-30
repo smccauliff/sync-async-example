@@ -72,15 +72,16 @@ public class ProduceServlet extends HttpServlet {
 
     String callMode = req.getParameter("call-mode");
 
-    if (callMode.equals("async")) {
-      // Paradoxically if we want to do a sync call efficiently we need to have an async context so we don't
-      // tie up this thread forever
+    // Sync means the client wants to wait
+    if (callMode.equals("wait-for-ack")) {
       asyncContext = req.startAsync();
       _producer.send(record, new ProduceAcknowledge(asyncContext));
-    } else if (callMode.equals("sync")) {
+      // Async means the client does not want to wait for produce acknowledgement.
+    } else if (callMode.equals("no-wait-for-ack")) {
       _producer.send(record);
+      resp.setStatus(HttpStatus.OK_200);
     } else {
-      throw new IllegalArgumentException("call-mode must be either sync|async");
+      throw new IllegalArgumentException("call-mode must be either wait-for-ack|no-wait-for-ack");
     }
 
   }
