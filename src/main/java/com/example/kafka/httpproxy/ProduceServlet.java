@@ -1,4 +1,4 @@
-package com.linkedin.example;
+package com.example.kafka.httpproxy;
 
 import java.io.IOException;
 import java.nio.charset.Charset;

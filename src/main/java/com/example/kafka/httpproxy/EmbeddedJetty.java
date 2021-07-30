@@ -1,4 +1,4 @@
-package com.linkedin.example;
+package com.example.kafka.httpproxy;
 
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
