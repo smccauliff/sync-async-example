@@ -1,0 +1,18 @@
+apply plugin: 'java'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation group: 'org.apache.kafka', name: 'kafka-clients', version: '2.4.1'
+  implementation group: 'org.eclipse.jetty', name: 'jetty-server', version: '9.4.43.v20210629'
+  implementation group: 'org.eclipse.jetty', name: 'jetty-servlets', version: '9.4.43.v20210629'
+  implementation group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '9.4.43.v20210629'
+  implementation group: 'org.eclipse.jetty', name: 'jetty-util', version: '9.4.43.v20210629'
+
+
+  implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
+
+}
+
